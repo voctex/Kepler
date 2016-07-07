@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 作者： 巴掌 on 16/6/9 17:34
+ * Created by voctex on 20160707
  */
 public class BannerPagerAdapter extends PagerAdapter {
 

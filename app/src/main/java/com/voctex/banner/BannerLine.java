@@ -12,7 +12,7 @@ import com.voctex.R;
 
 
 /**
- * 作者： 巴掌 on 16/6/9 22:37
+ * Created by voctex on 20160707
  */
 public class BannerLine extends View {
 

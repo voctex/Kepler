@@ -19,7 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 作者： 巴掌 on 16/6/9 17:32
+ * Created by voctex on 20160707
  */
 public class BannerView extends FrameLayout {
 

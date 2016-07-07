@@ -1,7 +1,7 @@
 package com.voctex.banner;
 
 /**
- * 作者： 巴掌 on 16/6/19 11:38
+ * Created by voctex on 20160707
  */
 public interface OnBannerClickListener {
     void onClick(int position);

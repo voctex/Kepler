@@ -1,7 +1,7 @@
 package com.voctex.banner;
 
 /**
- * 作者： 巴掌 on 16/6/9 21:06
+ * Created by voctex on 20160707
  */
 public class BannerEntity {
 

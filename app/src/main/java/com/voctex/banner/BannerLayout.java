@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.voctex.R;
 
 /**
- * 作者： 巴掌 on 16/6/9 17:37
+ * Created by voctex on 20160707
  */
 public class BannerLayout extends FrameLayout {
 

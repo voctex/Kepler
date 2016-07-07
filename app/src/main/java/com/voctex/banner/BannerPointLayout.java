@@ -11,7 +11,7 @@ import com.voctex.R;
 
 
 /**
- * Created by voctex on 2016/6/22.
+ * Created by voctex on 20160707
  */
 public class BannerPointLayout extends LinearLayout {
 
