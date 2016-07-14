@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_nfc"
+    android:id="@+id/activity_data"
+    android:gravity="center"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.voctex.activity.NFCActivity">
+    tools:context="com.voctex.activity.DataActivity">
 
     <TextView
-        android:id="@+id/nfc_text"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:text="TextView"
+        android:layout_width="60dp"
+        android:layout_height="18dp"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="265dp"
+        android:id="@+id/data_text" />
 </LinearLayout>

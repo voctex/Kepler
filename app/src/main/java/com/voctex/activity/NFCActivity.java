@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.voctex.R;
@@ -30,11 +31,14 @@ public class NFCActivity extends BaseActivity {
     private IntentFilter[] intentFilters;
     private PendingIntent mPendingIntent;
     private Tag tag;
+    private TextView nfcText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
+
+        nfcText= (TextView) findViewById(R.id.nfc_text);
 
 //        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 //        if (mNfcAdapter == null) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,29 +18,40 @@
         android:text="Hello World!"
         android:id="@+id/hello_work" />
 
-    <view
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        class="com.voctex.view.FireView"
-        android:id="@+id/view2"
+    <!--<view-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--class="com.voctex.view.FireView"-->
+        <!--android:id="@+id/view2"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_toRightOf="@+id/hello_work"-->
+        <!--android:layout_toEndOf="@+id/hello_work" />-->
+
+    <!--<com.voctex.view.FlowView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:id="@+id/flow"-->
+        <!--android:layout_below="@+id/hello_work"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入显示数据界面"
+        android:id="@+id/main_data"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/hello_work"
-        android:layout_toEndOf="@+id/hello_work" />
-
-    <com.voctex.view.FlowView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/view"
-        android:layout_below="@+id/hello_work"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="35dp" />
 
-    <view
-        android:layout_width="120dp"
-        android:layout_height="20dp"
-        class="com.voctex.view.HorizontalPointView"
-        android:layout_above="@+id/view2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/sixpoint" />
+
+    <!--<view-->
+        <!--android:layout_width="120dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--class="com.voctex.view.HorizontalPointView"-->
+        <!--android:layout_above="@+id/view2"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:id="@+id/sixpoint" />-->
 </RelativeLayout>

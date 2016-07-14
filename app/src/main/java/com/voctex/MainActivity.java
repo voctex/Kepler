@@ -4,7 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 
+import com.voctex.activity.AnimationActivity;
+import com.voctex.activity.DataActivity;
 import com.voctex.activity.NFCActivity;
 import com.voctex.activity.ShowActivity;
 import com.voctex.base.BaseActivity;
@@ -17,12 +24,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HorizontalPointView sixPointView=(HorizontalPointView) findViewById(R.id.sixpoint);
-        sixPointView.setPointNum(8);
-        sixPointView.setDuration(1000,500);
-        sixPointView.setOnClickListener(this);
+//        HorizontalPointView sixPointView=(HorizontalPointView) findViewById(R.id.sixpoint);
+//        sixPointView.setPointNum(8);
+//        sixPointView.setDuration(1000,500);
+//        sixPointView.setOnClickListener(this);
 
         findViewById(R.id.hello_work).setOnClickListener(this);
+        findViewById(R.id.main_data).setOnClickListener(this);
+
+
+
+
     }
 
     @Override
@@ -31,8 +43,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.hello_work:
                 startActivity(new Intent(this, ShowActivity.class));
                 break;
-            case R.id.sixpoint:
-                startActivity(new Intent(this, NFCActivity.class));
+            case R.id.main_data:
+//                startActivity(new Intent(this, DataActivity.class));
+                startActivity(new Intent(this, AnimationActivity.class));
                 break;
         }
     }
