@@ -14,6 +14,7 @@ import com.voctex.activity.AnimationActivity;
 import com.voctex.activity.DataActivity;
 import com.voctex.activity.NFCActivity;
 import com.voctex.activity.ShowActivity;
+import com.voctex.activity.SpannerActivity;
 import com.voctex.base.BaseActivity;
 import com.voctex.view.HorizontalPointView;
 
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.main_data:
 //                startActivity(new Intent(this, DataActivity.class));
-                startActivity(new Intent(this, AnimationActivity.class));
+                startActivity(new Intent(this, SpannerActivity.class));
                 break;
         }
     }

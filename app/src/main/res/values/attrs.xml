@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="vt_spinner">
+        <attr name="arrow_tint" format="color" />
+        <attr name="hide_arrow" format="boolean" />
+        <attr name="bg_selector" format="integer"/>
+        <attr name="text_tint" format="color"/>
+    </declare-styleable>
+</resources>

@@ -35,7 +35,8 @@
             android:name=".activity.NFCActivity"
             android:launchMode="singleTask" />
         <activity android:name=".activity.DataActivity" />
-        <activity android:name=".activity.AnimationActivity"></activity>
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.SpannerActivity"></activity>
     </application>
 
 </manifest>
