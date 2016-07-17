@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--这是spinner的自定义属性-->
     <declare-styleable name="vt_spinner">
         <attr name="arrow_tint" format="color" />
         <attr name="hide_arrow" format="boolean" />

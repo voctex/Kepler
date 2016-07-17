@@ -29,8 +29,9 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:background="@color/test_bg"
         android:layout_height="match_parent">
 
@@ -39,7 +40,22 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             class="com.voctex.view.VtShopStatusView"
-            android:id="@+id/view" />
-    </FrameLayout>
+            android:id="@+id/shop_status" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="请输入数字"
+            android:digits="0123456789"
+            android:ems="1"
+            android:id="@+id/editText" />
+
+        <Button
+            android:text="改变"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit_btn" />
+    </LinearLayout>
 
 </LinearLayout>

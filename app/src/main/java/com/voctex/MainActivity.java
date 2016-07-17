@@ -30,8 +30,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        sixPointView.setDuration(1000,500);
 //        sixPointView.setOnClickListener(this);
 
-        findViewById(R.id.hello_work).setOnClickListener(this);
-        findViewById(R.id.main_data).setOnClickListener(this);
+//        findViewById(R.id.hello_work).setOnClickListener(this);
+//        findViewById(R.id.main_data).setOnClickListener(this);
+//        findViewById(R.id.function_spanner).setOnClickListener(this);
 
 
 
@@ -45,6 +46,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(this, ShowActivity.class));
                 break;
             case R.id.main_data:
+                startActivity(new Intent(this, DataActivity.class));
+//                startActivity(new Intent(this, SpannerActivity.class));
+                break;
+            case R.id.function_spanner:
 //                startActivity(new Intent(this, DataActivity.class));
                 startActivity(new Intent(this, SpannerActivity.class));
                 break;

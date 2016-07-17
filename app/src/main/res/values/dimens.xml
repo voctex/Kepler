@@ -4,7 +4,13 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
 
-    <!---->
+    <!--item的左边内边距-->
     <dimen name="vt_item_l_pd">24dp</dimen>
+    <!--item的上下内边距-->
     <dimen name="vt_item_tb_pd">12dp</dimen>
+
+
+
+
+
 </resources>
