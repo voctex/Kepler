@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="pic_vp_id" type="id"/>
+    <item name="pic_vp_left" type="id"/>
+    <item name="pic_vp_right" type="id"/>
+
+
+</resources>

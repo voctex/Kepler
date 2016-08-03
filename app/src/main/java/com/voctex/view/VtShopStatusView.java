@@ -55,13 +55,12 @@ public class VtShopStatusView extends View {
     private int pointRadius = 0;
     private int pointNum = 5;
     private int pointDist = 0;
-    private int currentItem = 3;
+    private int currentItem = 0;
 
-    private Paint.FontMetricsInt fontMetrics;
-
-    private String[] time = {"18:15", "18:15", "18:15", "18:15", "18:15"};
-    private String[] text = {"已支付", "已接单", "已配送", "已签收", "已评论"};
-    private String[] texting = {"正在支付", "正在接单", "正在配送", "正在签收", "正在评论"};
+    private int bgColor = Color.parseColor("#f0f0f0");
+    private int pointColor = Color.parseColor("#FE980E");
+    private int textColor = Color.parseColor("#333333");
+    private int lineColor = Color.BLACK;
 
     private List<ShopStatusBean> mList = new ArrayList<ShopStatusBean>();
 
@@ -70,15 +69,15 @@ public class VtShopStatusView extends View {
         getCurrentDisplaySize();
 
         //实心圆的画笔
-        pointPaint.setColor(Color.parseColor("#FE980E"));
+        pointPaint.setColor(pointColor);
         pointPaint.setAntiAlias(true);
 
         //圆环实心圆的画笔
-        arcPointPaint.setColor(Color.parseColor("#f0f0f0"));
+        arcPointPaint.setColor(bgColor);
         arcPointPaint.setAntiAlias(true);
 
         //圆环的画笔
-        arcPaint.setColor(Color.parseColor("#FE980E"));
+        arcPaint.setColor(pointColor);
         arcPaint.setAntiAlias(true);
         arcPaint.setStrokeJoin(Paint.Join.ROUND);
         arcPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -86,29 +85,25 @@ public class VtShopStatusView extends View {
         arcPaint.setStrokeWidth(3);
 
         //线的画笔
-        linePaint.setColor(Color.BLACK);
+        linePaint.setColor(lineColor);
         linePaint.setAntiAlias(true);
         linePaint.setStyle(Paint.Style.STROKE);//设置画直线格式
         linePaint.setPathEffect(new DashPathEffect(new float[]{5, 5, 5, 5}, 1));//设置虚线效果
 
         //文本画笔
-        textPaint.setColor(Color.parseColor("#333333"));
+        textPaint.setColor(textColor);
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(20);
 
         for (int i = 0; i < pointNum; i++) {
-            ShopStatusBean bean=new ShopStatusBean();
-            try {
-                bean.setTime(time[i]);
-                bean.setFinish(text[i]);
-                bean.setDoing(texting[i]);
-            } catch (Exception e) {
-
+            ShopStatusBean bean = new ShopStatusBean();
+            if (i == 0) {
+                bean.setDoing("正在支付");
             }
             mList.add(bean);
         }
 
-        setBackgroundColor(Color.parseColor("#f0f0f0"));
+        setBackgroundColor(bgColor);
     }
 
     @Override
@@ -124,6 +119,10 @@ public class VtShopStatusView extends View {
         //画圆点
         int x = 0, y = mHeight / 4;
         for (int i = 0; i < pointNum; i++) {
+            if (mList.size() < 1) {
+                return;
+            }
+            ShopStatusBean bean = mList.get(i);
 
             if (i == 0) {
                 x = pointDist + pointRadius;
@@ -131,24 +130,41 @@ public class VtShopStatusView extends View {
                 x = x + pointRadius * 2 + pointDist;
             }
             RectF oval = new RectF(x - pointRadius, y - pointRadius, x + pointRadius, y + pointRadius);
-            if (i >= currentItem) {
+            if (i >= currentItem - 1) {
                 //画背景色实心圆
                 canvas.drawCircle(x, y, pointRadius, arcPointPaint);
                 //画圆环
                 canvas.drawArc(oval, 0, 360, false, arcPaint);
+
                 //画正在做的文本
-                drawText(x, (mHeight / 2 + mHeight / 3 * 2) / 2, mList.get(i).getDoing(), textPaint, canvas);
+                drawText(x, (mHeight / 2 + mHeight / 3 * 2) / 2, bean.getDoing(), textPaint, canvas);
                 break;
             } else {
                 //画已完成实心圆
                 canvas.drawCircle(x, y, pointRadius, pointPaint);
-                //画已完成时间
-                drawText(x, mHeight / 2, mList.get(i).getTime(), textPaint, canvas);
-                //画已完成文本
-                drawText(x, mHeight / 3 * 2, mList.get(i).getFinish(), textPaint, canvas);
+                try {
+                    //画已完成文本
+                    drawText(x, mHeight / 3 * 2, bean.getFinish(), textPaint, canvas);
+                    //画已完成时间
+                    drawText(x, mHeight / 2, bean.getTime(), textPaint, canvas);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
         }
+
+    }
+
+    public void setData(int index, String time, String finish, String doing) {
+        mList.get(index).setTime(time);
+        mList.get(index).setFinish(finish);
+        mList.get(index).setDoing(doing);
+    }
+
+    public void attachDataSource(List<ShopStatusBean> mList) {
+        this.mList.clear();
+        this.mList.addAll(mList);
 
     }
 
@@ -164,14 +180,15 @@ public class VtShopStatusView extends View {
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int textTop = fontMetrics.bottom - fontMetrics.top;
         int textLeft = x - textlen / 2;
-        canvas.drawText(text, textLeft, y + textTop, textPaint);
+        canvas.drawText(text, textLeft, y + textTop/2, textPaint);
     }
 
     /**
      * 设置当前的状态在哪个点上
      */
-    public void setCurrentItem(int index) {
-        this.currentItem = index;
+    public void setCurrentItem(List<ShopStatusBean> mList) {
+        this.mList = mList;
+        this.currentItem = mList.size();
         refreshView();
     }
 

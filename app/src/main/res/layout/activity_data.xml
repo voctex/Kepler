@@ -9,11 +9,33 @@
     android:layout_height="match_parent"
     tools:context="com.voctex.activity.DataActivity">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="60dp"
-        android:layout_height="18dp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="265dp"
-        android:id="@+id/data_text" />
+    <!--<TextView-->
+        <!--android:text="TextView"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="18dp"-->
+        <!--tools:layout_editor_absoluteX="166dp"-->
+        <!--tools:layout_editor_absoluteY="265dp"-->
+        <!--android:id="@+id/data_text" />-->
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.voctex.pullload.PullToRefreshLayout"
+        android:id="@+id/refresh_view" >
+
+        <include layout="@layout/refresh_head" />
+        <!-- 支持所有实现Pullable接口的View -->
+
+        <view
+            class="com.voctex.pullload.pullableview.PullableListView"
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/gray"
+            android:dividerHeight="1dp" />
+
+        <include layout="@layout/load_more" />
+
+    </view>
 </LinearLayout>

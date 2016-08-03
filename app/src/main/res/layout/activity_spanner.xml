@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:text_circle="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_spanner"
     android:layout_width="match_parent"
@@ -38,7 +39,7 @@
 
         <view
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="100dp"
             class="com.voctex.view.VtShopStatusView"
             android:id="@+id/shop_status" />
 
@@ -51,11 +52,75 @@
             android:ems="1"
             android:id="@+id/editText" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imageView3" />
+
+            <view
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                class="android.support.v4.view.ViewPager"
+                android:id="@+id/view2"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imageView4" />
+        </LinearLayout>
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            class="com.voctex.view.picvp.VtPicVpView"
+            android:id="@+id/vt_picvp" />
+
         <Button
             android:text="改变"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/submit_btn" />
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text_color="#333333"
+            class="com.voctex.view.classify.VtClassifyView"
+            android:id="@+id/vt_classify" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <view
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                class="com.voctex.view.PressView"
+                app:tc_text="@string/haha"
+                app:tc_textColor="#449977"
+                app:tc_textSize="20sp"
+                android:id="@+id/view4" />
+
+            <view
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                class="com.voctex.view.PriceView"
+
+                android:id="@+id/view" />
+            <!--text_circle:tc_text="哈哈哈哈"
+                text_circle:tc_textSize="20sp"
+                text_circle:tc_textColor="#449977"-->
+        </LinearLayout>
+
     </LinearLayout>
+
 
 </LinearLayout>

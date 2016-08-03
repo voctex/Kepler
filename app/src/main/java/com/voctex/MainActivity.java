@@ -1,6 +1,7 @@
 package com.voctex;
 
 import android.content.Intent;
+import android.os.UserManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.voctex.activity.SpannerActivity;
 import com.voctex.base.BaseActivity;
 import com.voctex.view.HorizontalPointView;
 
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
@@ -31,8 +33,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        sixPointView.setOnClickListener(this);
 
 //        findViewById(R.id.hello_work).setOnClickListener(this);
-//        findViewById(R.id.main_data).setOnClickListener(this);
-//        findViewById(R.id.function_spanner).setOnClickListener(this);
+        findViewById(R.id.main_data).setOnClickListener(this);
+        findViewById(R.id.function_spanner).setOnClickListener(this);
 
 
 
@@ -42,9 +44,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.hello_work:
-                startActivity(new Intent(this, ShowActivity.class));
-                break;
+//            case R.id.hello_work:
+//                startActivity(new Intent(this, ShowActivity.class));
+//                break;
             case R.id.main_data:
                 startActivity(new Intent(this, DataActivity.class));
 //                startActivity(new Intent(this, SpannerActivity.class));

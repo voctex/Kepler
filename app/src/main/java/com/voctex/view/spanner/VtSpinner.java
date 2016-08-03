@@ -116,11 +116,12 @@ public class VtSpinner extends TextView {
     private void init(Context context, AttributeSet attrs) {
         Resources resources = getResources();
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.vt_spinner);
-        int defaultPadding = resources.getDimensionPixelSize(R.dimen.vt_item_tb_pd);
+        int tbPadding = resources.getDimensionPixelSize(R.dimen.vt_item_tb_pd);
+        int lrPadding = resources.getDimensionPixelSize(R.dimen.vt_item_l_pd);
 
         setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
-        setPadding(resources.getDimensionPixelSize(R.dimen.vt_item_l_pd), defaultPadding, defaultPadding,
-                defaultPadding);
+        //设置内边距
+        setPadding(lrPadding, tbPadding, lrPadding,tbPadding);
         setClickable(true);
 
         backgroundSelector = typedArray.getResourceId(R.styleable.vt_spinner_bg_selector, R.drawable.vt_selector_item);
@@ -239,12 +240,12 @@ public class VtSpinner extends TextView {
     }
 
     public <T> void attachDataSource(@NonNull List<T> dataset) {
-        adapter = new VtSpinnerAdapter<>(getContext(), currentMode,dataset, textColor, backgroundSelector);
+        adapter = new VtSpinnerAdapter<>(getContext(), currentMode, dataset, textColor, backgroundSelector);
         setAdapterInternal(adapter);
     }
 
     public void setAdapter(@NonNull ListAdapter adapter) {
-        this.adapter = new VtSpinnerAdapterWrapper(getContext(), currentMode,adapter, textColor, backgroundSelector);
+        this.adapter = new VtSpinnerAdapterWrapper(getContext(), currentMode, adapter, textColor, backgroundSelector);
         setAdapterInternal(this.adapter);
     }
 

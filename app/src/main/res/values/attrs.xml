@@ -7,4 +7,21 @@
         <attr name="bg_selector" format="integer"/>
         <attr name="text_tint" format="color"/>
     </declare-styleable>
+
+    <!--这是spinner的自定义属性-->
+    <declare-styleable name="vt_classify">
+        <attr name="triangle_color" format="color" />
+        <attr name="triangle_hide" format="boolean" />
+        <attr name="text_bg" format="integer"/>
+        <attr name="text_color" format="color"/>
+    </declare-styleable>
+
+    <!--text_circle-->
+    <declare-styleable name="press_view">
+        <attr name="tc_text" format="string"/>
+        <attr name="tc_textSize" format="dimension"/>
+        <attr name="tc_textColor" format="color"/>
+        <attr name="tc_normalColor" format="color"/>
+        <attr name="tc_selectColor" format="color"/>
+    </declare-styleable>
 </resources>

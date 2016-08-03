@@ -13,9 +13,7 @@
     <!--android:background="@mipmap/start_bg"-->
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
 
     <!--<TextView-->
         <!--android:layout_width="wrap_content"-->
@@ -40,27 +38,27 @@
         <!--android:layout_alignParentLeft="true"-->
         <!--android:layout_alignParentStart="true" />-->
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="进入显示数据界面"-->
-        <!--android:id="@+id/main_data"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginBottom="35dp" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入显示数据界面"
+        android:id="@+id/main_data"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="35dp" />
 
-    <!--<TextView-->
-        <!--android:text="进入显示功能界面"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/main_data"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginLeft="7dp"-->
-        <!--android:layout_marginStart="7dp"-->
-        <!--android:layout_marginBottom="218dp"-->
-        <!--android:id="@+id/function_spanner" />-->
+    <TextView
+        android:text="进入显示功能界面"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_data"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="218dp"
+        android:id="@+id/function_spanner" />
 
 
     <!--<view-->

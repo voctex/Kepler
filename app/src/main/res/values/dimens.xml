@@ -9,7 +9,8 @@
     <!--item的上下内边距-->
     <dimen name="vt_item_tb_pd">12dp</dimen>
 
-
+    <dimen name="vt_pic_text_lr_pd">10dp</dimen>
+    <dimen name="vt_pic_text_tb_pd">5dp</dimen>
 
 
 

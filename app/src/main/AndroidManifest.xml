@@ -7,13 +7,22 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".VtApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
+        <meta-data android:name="appId" android:value="201607211546"/>
+        <meta-data android:name="appKey" android:value="80536a4db9d49a075dad4ba86822046c"/>
+
+
         <meta-data
             android:name="android.nfc.action.TECH_DISCOVERED"
             android:resource="@xml/nfc_tech_filter" />
@@ -21,7 +30,8 @@
             android:name="testData"
             android:value="test" />
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
         <!-- <activity android:name=".base.BaseActivity" /> -->
         <activity android:name=".activity.StartActivity">
             <intent-filter>
@@ -36,7 +46,8 @@
             android:launchMode="singleTask" />
         <activity android:name=".activity.DataActivity" />
         <activity android:name=".activity.AnimationActivity" />
-        <activity android:name=".activity.SpannerActivity"></activity>
+        <activity android:name=".activity.SpannerActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
