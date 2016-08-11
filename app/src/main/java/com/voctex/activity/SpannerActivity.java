@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.voctex.R;
 import com.voctex.base.BaseActivity;
@@ -108,6 +109,11 @@ public class SpannerActivity extends BaseActivity implements AdapterView.OnItemC
         vtClassifyView.attachHotDataSource(dataset1);
         vtClassifyView.addOnItemClickListener(this);
         vtClassifyView.setOnHotItemClickListener(this);
+
+
+        LinearLayout bottomLayout= (LinearLayout) findViewById(R.id.bottom_layout);
+
+//        LoadOperate loadTool=new LoadOperate(SpannerActivity.this,bottomLayout);
     }
 
     @Override

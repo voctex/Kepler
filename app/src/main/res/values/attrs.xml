@@ -24,4 +24,9 @@
         <attr name="tc_normalColor" format="color"/>
         <attr name="tc_selectColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomView">
+        <attr name="border_color" format="color"/>
+        <attr name="border_width" format="dimension"/>
+    </declare-styleable>
 </resources>

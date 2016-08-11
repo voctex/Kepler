@@ -131,8 +131,10 @@ public class RotateView extends View {
         canvas.drawArc(oval, 0, 360, false, circlePaint);
         //画图片
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.upload_ico);
+        int bmpW=bmp.getWidth();
+        int bmpH=bmp.getHeight();
         picPaint.setAntiAlias(true);
-        canvas.drawBitmap(bmp, 0, 0, picPaint);
+        canvas.drawBitmap(bmp, (mWidth-bmpW)/2, (mHeight-bmpH)/2, picPaint);
 
         startAngle = (float) (beginAngle);
         float arcAngles = (float) (arcAngle - selfDist * (i));
