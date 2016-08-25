@@ -3,5 +3,12 @@
 
 
     <string name="haha">哈哈哈</string>
+    <string name="img_contentdescription">ImageView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment_first">Hello first fragment</string>
+    <string name="hello_blank_fragment_second">Hello second fragment</string>
+    <string name="hello_blank_fragment_third">Hello third fragment</string>
+    <string name="hello_blank_fragment_fourth">Hello fourth fragment</string>
 
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- <item android:drawable="@drawable/checkbox_on" android:state_pressed="true"></item> -->
+    <item android:drawable="@mipmap/tab_item_phone_on" android:state_selected="true"></item>
+    <item android:drawable="@mipmap/tab_item_phone_off" android:state_selected="false"></item>
+    <!-- <item android:drawable="@drawable/checkbox_off" android:state_pressed="false"></item> -->
+</selector>

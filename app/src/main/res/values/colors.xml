@@ -11,6 +11,10 @@
 
     <!---->
     <color name="test_bg">#aba151</color>
+    <color name="text_light">#999999</color>
+    <color name="text_dark">#333333</color>
+    <color name="text_normal">#666666</color>
+
 
     <!--line-->
     <color name="line">#cccccc</color>

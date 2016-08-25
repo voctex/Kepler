@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 主页面标签文本数组：main_text -->
+    <string-array name="main_tab_texts">
+        <item>拨号</item>
+        <item>联系人</item>
+        <item>发现</item>
+        <item>个人</item>
+    </string-array>
+    <!-- 主页面标签icon数组：main_icon -->
+    <string-array name="main_tab_icons">
+        <item>@drawable/selector_tab_item_icon0</item>
+        <item>@drawable/selector_tab_item_icon1</item>
+        <item>@drawable/selector_tab_item_icon2</item>
+        <item>@drawable/selector_tab_item_icon3</item>
+    </string-array>
+
+</resources>
