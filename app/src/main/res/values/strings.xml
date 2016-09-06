@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">VoctexApp</string>
+    <string name="app_name">小V</string>
 
 
     <string name="haha">哈哈哈</string>
+
     <string name="img_contentdescription">ImageView</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -11,4 +12,8 @@
     <string name="hello_blank_fragment_third">Hello third fragment</string>
     <string name="hello_blank_fragment_fourth">Hello fourth fragment</string>
 
+
+    <!--权限-->
+    <string name="permission_set">设置</string>
+    <string name="permission_cancel">取消</string>
 </resources>

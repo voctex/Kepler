@@ -32,11 +32,12 @@ public class SpannerActivity extends BaseActivity implements AdapterView.OnItemC
     private String[] text = {"已支付", "已接单", "已配送", "已签收", "已评论"};
     private String[] texting = {"正在支付", "正在接单", "正在配送", "正在签收", "正在评论"};
 
-        private String[] urlArr = {"http://img3.3lian.com/2013/s1/30/d/68.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=4124642155,3788556392&fm=21&gp=0.jpg",
-            "http://img1.3lian.com/2015/a1/120/d/123.jpg",
-            "http://img1.imgtn.bdimg.com/it/u=445022991,4288176230&fm=21&gp=0.jpg",
-            "http://img3.imgtn.bdimg.com/it/u=521238632,39244381&fm=21&gp=0.jpg"};
+        private String[] urlArr = {"http://cdn.duitang.com/uploads/item/201403/01/20140301142145_kt5Gc.jpeg",
+            "http://pic.yesky.com/uploadImages/2016/030/15/7L1YWGT7LDUZ.jpg",
+            "http://www.bz55.com/uploads/allimg/150730/139-150I01AH5.jpg",
+            "http://www.bz55.com/uploads/allimg/150811/140-150Q1094F4.jpg",
+            "http://www.bz55.com/uploads/allimg/150703/139-150F3112104.jpg",
+            "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1503/17/c2/3974342_1426551849357_mthumb.jpg"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

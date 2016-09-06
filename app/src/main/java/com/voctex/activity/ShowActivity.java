@@ -12,4 +12,10 @@ public class ShowActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
     }
+
+    @Override
+    protected void initTheme() {
+//        super.initTheme();
+        setTheme(R.style.AppScreentTheme);
+    }
 }

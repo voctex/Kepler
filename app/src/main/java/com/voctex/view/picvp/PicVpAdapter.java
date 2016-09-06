@@ -43,10 +43,12 @@ public class PicVpAdapter extends PagerAdapter {
             });
             Glide.with(mContext)
                     .load(mlist.get(i))
-                    .centerCrop()
+                    .fitCenter()
                     .crossFade()
+                    .placeholder(R.mipmap.banner_loading)
+                    .error(R.mipmap.banner_loading)
                     .into(img)
-                    .onLoadStarted(mContext.getResources().getDrawable(R.mipmap.banner_loading));
+                    ;
             imgList.add(img);
         }
     }

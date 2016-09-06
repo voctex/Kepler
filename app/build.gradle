@@ -10,16 +10,21 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        // dex突破65535的限制
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true  //是否开启混淆
+            shrinkResources true    //去除无用的resource文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res/banner', 'src/main/res/tabhost', 'src/main/res/pullload']
+            res.srcDirs = ['src/main/res', 'src/main/res/banner', 'src/main/res/tabhost',
+                           'src/main/res/pullload','src/main/res/rx','src/main/res/contacts']
         }
     }
 
@@ -35,11 +40,11 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//        compile files('libs/AndroidPlugin.jar')
+    //        compile files('libs/AndroidPlugin.jar')
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-//    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
+    //    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
@@ -47,4 +52,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
     compile(name: 'ArcRipple-release', ext: 'aar')
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
 }

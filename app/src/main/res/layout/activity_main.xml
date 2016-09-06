@@ -8,8 +8,6 @@
     tools:context="com.voctex.MainActivity">
 
 
-
-
     <FrameLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
@@ -18,14 +16,13 @@
 
     </FrameLayout>
 
+    <View style="@style/line_horizontal"></View>
+
     <view
         android:id="@+id/main_tabhost"
         class="android.support.v4.app.FragmentTabHost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-
+        android:layout_height="wrap_content">
     </view>
 
 

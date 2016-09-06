@@ -1,8 +1,8 @@
 package com.voctex;
 
 import android.content.res.TypedArray;
-import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTabHost;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +48,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
 
         initView();
 
+    }
+
+    public void setTheme() {
+        //重新设置主题需要走的方法
+        recreate();
     }
 
     private void initView(){

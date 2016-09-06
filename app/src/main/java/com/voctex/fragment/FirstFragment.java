@@ -9,10 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.voctex.MainActivity;
 import com.voctex.R;
 import com.voctex.activity.DataActivity;
 import com.voctex.activity.ShowActivity;
 import com.voctex.activity.SpannerActivity;
+import com.voctex.base.BaseActivity;
+import com.voctex.contacts.ContactActivity;
+import com.voctex.permission.PermissionsActivity;
+import com.voctex.rx.uia.RxJavaActivity;
+import com.voctex.tools.SPUtil;
+import com.voctex.tools.VtToast;
 
 
 /**
@@ -44,24 +51,41 @@ public class FirstFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView(){
+        mViewGroup.findViewById(R.id.func_hello).setOnClickListener(this);
         mViewGroup.findViewById(R.id.hello_work).setOnClickListener(this);
         mViewGroup.findViewById(R.id.main_data).setOnClickListener(this);
         mViewGroup.findViewById(R.id.function_spanner).setOnClickListener(this);
+        mViewGroup.findViewById(R.id.function_rx).setOnClickListener(this);
+        mViewGroup.findViewById(R.id.function_contact).setOnClickListener(this);
+        mViewGroup.findViewById(R.id.function_permission).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.func_hello:
+                SPUtil.put(mContext, SPUtil.FileName.SYSTEM,"isNight",
+                        !((boolean)SPUtil.get(mContext, SPUtil.FileName.SYSTEM,"isNight",false)));
+                ((MainActivity)mContext).setTheme();
+                VtToast.s(mContext,"更换主题");
+                break;
             case R.id.hello_work:
                 startActivity(new Intent(mContext, ShowActivity.class));
                 break;
             case R.id.main_data:
                 startActivity(new Intent(mContext, DataActivity.class));
-//                startActivity(new Intent(this, SpannerActivity.class));
                 break;
             case R.id.function_spanner:
-//                startActivity(new Intent(this, DataActivity.class));
                 startActivity(new Intent(mContext, SpannerActivity.class));
+                break;
+            case R.id.function_rx:
+                startActivity(new Intent(mContext, RxJavaActivity.class));
+                break;
+            case R.id.function_contact:
+                startActivity(new Intent(mContext, ContactActivity.class));
+                break;
+            case R.id.function_permission:
+                startActivity(new Intent(mContext, PermissionsActivity.class));
                 break;
         }
     }

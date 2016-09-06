@@ -10,6 +10,7 @@ import android.webkit.WebView;
 
 import com.voctex.R;
 import com.voctex.base.BaseFragment;
+import com.voctex.tools.SPUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +36,8 @@ public class WebFragment extends BaseFragment {
         webView.loadUrl("http://www.html5tricks.com/demo/html5-svg-shanche-animation/index.html");
 //        webView.loadUrl("file:///android_asset/ac/index.html");
 
+        SPUtil.put(mContext,"text","key",123);
+        SPUtil.get(mContext,"text","","");
         return view;
     }
 

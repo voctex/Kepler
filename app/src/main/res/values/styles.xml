@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppScreentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <!--白天模式-->
+    <style name="AppLightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--主题色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--辅助色（或强调色）-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
+        <item name="android:textColorTertiary">@color/colorPrimaryTextBlack</item>
+        <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
+        <item name="android:textColorSecondary">@color/colorSubTextBlack</item>
+        <!--Window的背景色-->
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <!--夜间模式-->
+    <style name="AppDarkTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+        <item name="android:textColorTertiary">@color/darkColorPrimaryTextBlack</item>
+        <!--<item name="android:textColorPrimary">@color/darkColorPrimaryTextBlack</item>-->
+        <item name="android:textColorSecondary">@color/darkColorSubTextBlack</item>
+        <item name="android:windowBackground">@color/darkWindowBackground</item>
+    </style>
+
+    <style name="Transparent" parent="android:Theme.Light">
+        <!--将Activity的Theme设置成透明-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!--横线-->
+    <style name="line_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/line</item>
+    </style>
+    <!--竖线-->
+    <style name="line_vertical">
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/line</item>
+    </style>
+
+</resources>

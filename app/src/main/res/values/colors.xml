@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <!--theme-->
+    <color name="colorPrimary">#9c27b0</color>
+    <!--就是比colorPrimary稍微深一些，主要用在状态栏-->
+    <color name="colorPrimaryDark">#7b1fa2</color>
+    <!--辅助色（或强调色）-->
+    <color name="colorAccent">#9c27b0</color>
+    <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
+    <color name="colorPrimaryTextBlack">#cc333333</color>
+    <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
+    <color name="colorSubTextBlack">#cc999999</color>
+    <!--Window的背景色-->
+    <color name="windowBackground">#ffffff</color>
 
 
-    <!---->
+    <!--theme-->
+    <color name="darkColorPrimary">#9c27b0</color>
+    <!--就是比colorPrimary稍微深一些，主要用在状态栏-->
+    <color name="darkColorPrimaryDark">#7b1fa2</color>
+    <!--辅助色（或强调色）-->
+    <color name="darkColorAccent">#9c27b0</color>
+    <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
+    <color name="darkColorPrimaryTextBlack">#d1d1d1</color>
+    <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
+    <color name="darkColorSubTextBlack">#a1a1a1</color>
+    <!--Window的背景色-->
+    <color name="darkWindowBackground">#1a1a1a</color>
+
+
+    <!--浅灰-->
     <color name="light_gray">#fff5f5f5</color>
 
 
-    <!---->
+    <!--text的颜色-->
     <color name="test_bg">#aba151</color>
     <color name="text_light">#999999</color>
     <color name="text_dark">#333333</color>
