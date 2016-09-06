@@ -43,7 +43,7 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
 
         webSettings.setAppCacheEnabled(false);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.addJavascriptInterface(javaScriptObject, "yidontJsObj");
+        webView.addJavascriptInterface(javaScriptObject, "jsObj");
 
 
         webView.setWebViewClient(new WebViewClient() {
@@ -60,7 +60,7 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
 
         });
 
-        webView.loadUrl("http://ceshi.yidont.com/app/ELife/page/shop_index.html");
+        webView.loadUrl("http://www.baidu.com");
     }
 
     @Override
