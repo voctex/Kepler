@@ -3,10 +3,10 @@
 
     <!-- 主页面标签文本数组：main_text -->
     <string-array name="main_tab_texts">
-        <item>拨号</item>
-        <item>联系人</item>
-        <item>发现</item>
-        <item>个人</item>
+        <item>树林</item>
+        <item>夜晚</item>
+        <item>奶瓶</item>
+        <item>细沙</item>
     </string-array>
     <!-- 主页面标签icon数组：main_icon -->
     <string-array name="main_tab_icons">

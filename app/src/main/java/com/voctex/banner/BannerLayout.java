@@ -45,7 +45,7 @@ public class BannerLayout extends FrameLayout {
                 .centerCrop()
                 .crossFade()
                 .into(mIvBanner)
-                .onLoadStarted(getResources().getDrawable(R.mipmap.banner_default_img))
+                .onLoadStarted(getResources().getDrawable(R.mipmap.banner_loading))
                 ;
         if (isShowTitle) {
             mTvBannerTitle.setVisibility(View.VISIBLE);

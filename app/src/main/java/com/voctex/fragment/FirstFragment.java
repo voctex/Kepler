@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,8 @@ public class FirstFragment extends Fragment implements View.OnClickListener{
             case R.id.func_hello:
                 SPUtil.put(mContext, SPUtil.FileName.SYSTEM,"isNight",
                         !((boolean)SPUtil.get(mContext, SPUtil.FileName.SYSTEM,"isNight",false)));
-                ((MainActivity)mContext).setTheme();
+//                ((MainActivity)mContext).setActTheme();
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 VtToast.s(mContext,"更换主题");
                 break;
             case R.id.hello_work:

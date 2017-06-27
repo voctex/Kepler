@@ -16,4 +16,8 @@
     <!--权限-->
     <string name="permission_set">设置</string>
     <string name="permission_cancel">取消</string>
+
+    <!--navigation-->
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
 </resources>

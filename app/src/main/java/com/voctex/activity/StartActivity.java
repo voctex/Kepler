@@ -9,6 +9,9 @@ import com.voctex.MainActivity;
 import com.voctex.R;
 import com.voctex.base.BaseActivity;
 
+/**
+ * 启动页
+ */
 public class StartActivity extends BaseActivity {
 
     @Override
@@ -22,12 +25,7 @@ public class StartActivity extends BaseActivity {
                 startActivity(new Intent(mContext, MainActivity.class));
                 finish();
             }
-        }, 2500);
+        }, 1000);
     }
 
-    @Override
-    protected void initTheme() {
-//        super.initTheme();
-        setTheme(R.style.AppScreentTheme);
-    }
 }

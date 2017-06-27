@@ -2,9 +2,15 @@ package com.voctex;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +23,10 @@ import com.voctex.fragment.FourthFragment;
 import com.voctex.fragment.SecondFragment;
 import com.voctex.fragment.WebFragment;
 import com.voctex.tools.VtLog;
+import com.voctex.tools.VtToast;
+//import com.yidont.esdk.pay.bean.GamePayParams;
+//import com.yidont.esdk.pay.interfac.PayStatusListener;
+//import com.yidont.esdk.pay.view.PayView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +34,7 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener ,TabHost.OnTabChangeListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener ,TabHost.OnTabChangeListener/*,PayStatusListener*/{
 
     private Class<?>[] fragments = new Class[] { FirstFragment.class,
             SecondFragment.class, WebFragment.class,
@@ -33,6 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
     private TypedArray tabImgs;
     private int beforeTag = 0;
     private FragmentTabHost tabHost;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +57,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
 
 //
 
+
+//                GamePayParams payParams=new GamePayParams();
+//        //订单名称，如：屠龙刀
+//        payParams.setGameOrderName("1111");
+//        //订单总价，String类型
+//        payParams.setGameOrderTotal("0.01");
+//        //商品id，如：屠龙刀id为009
+//        payParams.setGameProductId("abcdaeraer");
+//        //订单id（时间戳形式），如果没有自己的订单生成规则，可以传入null，
+//        payParams.setGameOrderNo(null);
+//        PayView.showPayUI(this, payParams, this);
+
         initView();
 
-    }
 
-    public void setTheme() {
-        //重新设置主题需要走的方法
-        recreate();
+
     }
 
     private void initView(){
+
+        Toolbar toolbar= ((Toolbar) findViewById(R.id.main_toolbar));
+        toolbar.setTitle("Kepler");
+        setSupportActionBar(toolbar);
+
+
         tabHost = (FragmentTabHost) findViewById(R.id.main_tabhost);
         tabHost.setup(this, getSupportFragmentManager(), R.id.main_content);
 
@@ -78,6 +104,47 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
         tabHost.setOnTabChangedListener(this);
 
         tabHost.getTabContentView().addView(getView(1),0);
+
+
+        final NavigationView navigationView= ((NavigationView) findViewById(R.id.navigation_view));
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                VtToast.s(mContext,"--"+item.getItemId());
+                VtLog.i("itemId="+item.getItemId()+"--groupId="+item.getGroupId());
+                VtLog.i("itemId="+R.id.navigation_item_home+"--groupId="+item.getGroupId());
+                VtLog.i("itemId="+R.id.navigation_item_blog+"--groupId="+item.getGroupId());
+                VtLog.i("itemId="+R.id.navigation_item_about+"--groupId="+item.getGroupId());
+                drawerLayout.closeDrawer(navigationView);
+                return false;
+            }
+        });
+
+        drawerLayout = ((DrawerLayout) findViewById(R.id.drawer_layout));
+
+        ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close);
+        actionBarDrawerToggle.syncState();
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                VtLog.i("drawer--slide"+slideOffset);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                VtLog.i("drawer--open"+"");
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                VtLog.i("drawer--close"+"");
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                VtLog.i("drawer--changed"+newState);
+            }
+        });
 
     }
 
@@ -150,4 +217,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
 
         return view;
     }
+
+//    @Override
+//    public void onPaySuccess(GamePayParams payParams) {
+//
+//    }
+//
+//    @Override
+//    public void onPayFailure(GamePayParams payParams, String reason) {
+//
+//    }
 }

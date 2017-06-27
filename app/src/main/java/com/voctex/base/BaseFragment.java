@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 /**
  * Created by Voctex on 2016/8/22.
  */
-
 public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected ViewGroup mViewGroup;
@@ -19,24 +18,25 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext=context;
+        mContext = context;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (mViewGroup==null){
-            mViewGroup= (ViewGroup) inflater.from(mContext).inflate(getLayout(),container);
+        if (mViewGroup == null) {
+            mViewGroup = (ViewGroup) inflater.inflate(getLayout(), container, false);
             initView();
-        }else{
-            ViewGroup parent1 = (ViewGroup)this.mViewGroup.getParent();
-            if(parent1 != null) {
-                parent1.removeAllViews();
+        } else {
+            ViewGroup parent1 = (ViewGroup) this.mViewGroup.getParent();
+            if (parent1 != null) {
+                parent1.removeView(mViewGroup);
             }
         }
         return mViewGroup;
     }
 
     protected abstract int getLayout();
+
     protected abstract void initView();
 }

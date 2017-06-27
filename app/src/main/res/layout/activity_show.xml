@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_show"
     android:orientation="vertical"
-    android:background="@mipmap/start_bg3"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.voctex.activity.ShowActivity">
 
 
+    <com.voctex.view.slidetab.SlideTabView
+        android:id="@+id/show_slidetab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.voctex.view.slidetab.SlideTabView>
 
 
 </LinearLayout>

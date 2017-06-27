@@ -16,16 +16,23 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
 
-        initTheme();
-
     }
 
-    protected void initTheme() {
-        if ((boolean)SPUtil.get(this,SPUtil.FileName.SYSTEM,"isNight",false)) {
-            setTheme(R.style.AppDarkTheme);
-        } else {
-            setTheme(R.style.AppLightTheme);
+    public void setActTheme(){
+        setActTheme(0);
+    }
+    public void setActTheme(int style) {
+        if (style==0) {
+            if ((boolean) SPUtil.get(this, SPUtil.FileName.SYSTEM, "isNight", false)) {
+                setTheme(R.style.AppDarkTheme);
+            } else {
+                setTheme(R.style.AppLightTheme);
+            }
+        }else{
+            setTheme(style);
         }
+        //重新设置主题需要走的方法
+        recreate();
     }
 
 

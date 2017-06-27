@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.voctex"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
 
@@ -15,41 +15,61 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug{
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            manifestPlaceholders=["test_key":"debug1111","test_key2":"debug2222"]
+        }
         release {
             minifyEnabled true  //是否开启混淆
             shrinkResources true    //去除无用的resource文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            manifestPlaceholders=["test_key":"release11","test_key2":"release22"]
         }
     }
     sourceSets {
         main {
             res.srcDirs = ['src/main/res', 'src/main/res/banner', 'src/main/res/tabhost',
-                           'src/main/res/pullload','src/main/res/rx','src/main/res/contacts']
+                           'src/main/res/pullload','src/main/res/rx','src/main/res/contacts',
+                            'src/main/res/slidetab']
         }
     }
 
     //这一句是为了加载aar包才加入的
     repositories {
         flatDir {
-            dirs 'libs'
+            dirs 'libs/aars'
         }
     }
     productFlavors {
     }
+
+    // 解决重复加载第三方那个jar包问题
+//    packagingOptions { exclude 'META-INF/DEPENDENCIES' exclude 'META-INF/NOTICE' exclude 'META-INF/LICENSE' }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     compile(name: 'ArcRipple-release', ext: 'aar')
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+//    compile ('com.yidont.esdk:pay:0.0.5'){
+//        // 冲突时优先使用该版本
+//        force = true
+////        exclude group: 'com.android.support'
+//    }
+
 }
