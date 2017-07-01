@@ -4,6 +4,9 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     defaultConfig {
         applicationId "com.voctex"
         minSdkVersion 15
@@ -62,9 +65,18 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.voctex.banner:banner:1.0.5'
     testCompile 'junit:junit:4.12'
     compile(name: 'ArcRipple-release', ext: 'aar')
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+    // To get SwipeBack feature, rely on both fragmentation & fragmentation-swipeback
+    compile 'me.yokeyword:fragmentation:1.0.3'
+    // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
+    compile 'me.yokeyword:fragmentation-swipeback:1.0.3'
+
+    compile 'pub.devrel:easypermissions:0.4.2'
+
 
 //    compile ('com.yidont.esdk:pay:0.0.5'){
 //        // 冲突时优先使用该版本

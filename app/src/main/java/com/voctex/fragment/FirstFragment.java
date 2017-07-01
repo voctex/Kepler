@@ -1,94 +1,160 @@
 package com.voctex.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
-import android.view.LayoutInflater;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import com.voctex.MainActivity;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.voctex.R;
 import com.voctex.activity.DataActivity;
 import com.voctex.activity.ShowActivity;
 import com.voctex.activity.SpannerActivity;
-import com.voctex.base.BaseActivity;
+import com.voctex.banner.BannerLayout;
+import com.voctex.banner.bean.BannerEntity;
+import com.voctex.banner.interfac.OnBannerImgShowListener;
+import com.voctex.base.BaseFragment;
+import com.voctex.base.BaseRecyclerAdapter;
 import com.voctex.contacts.ContactActivity;
-import com.voctex.permission.PermissionsActivity;
+import com.voctex.fragment.adapter.FirstAdapter;
+import com.voctex.fragment.bean.FirstBean;
 import com.voctex.rx.uia.RxJavaActivity;
 import com.voctex.tools.SPUtil;
 import com.voctex.tools.VtToast;
+import com.voctex.ui.tablayout.view.CollapsingToolbarUIA;
+import com.voctex.ui.tablayout.view.TabLayoutUIA;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Created by voctex on 2016/08/12.
  */
-public class FirstFragment extends Fragment implements View.OnClickListener{
+public class FirstFragment extends BaseFragment implements OnBannerImgShowListener,BaseRecyclerAdapter.OnItemClickListener<FirstBean>{
 
-    private ViewGroup mViewGroup;
-    private Context mContext;
 
-    public FirstFragment() {
-        // Required empty public constructor
+    private String[] imgs = {"http://i.dimg.cc/c6/83/61/ae/6d/cf/05/14/53/d0/ca/d3/b6/cc/53/a8.jpg",
+            "http://cartoon.youth.cn/zxzx/201611/W020161114398226707935.jpg",
+            "http://img01.cztv.com/201611/23/4b010e8135acc3f3c4c4dd6d2854396c.jpg",
+            "http://fun.youth.cn/yl24xs/201609/W020160924508906880576.png",
+            "http://7xsbn8.com1.z0.glb.clouddn.com/1480305147.jpg",
+            "http://2t.5068.com/uploads/allimg/160406/65-1604061H216.jpg"};
+
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_first;
+    }
+
+    protected void initView(){
+
+        List<BannerEntity> mList = new ArrayList<>();
+        for (int i = 0; i < imgs.length; i++) {
+            BannerEntity bannerEntity = new BannerEntity();
+            bannerEntity.setAdImg(imgs[i]);
+            mList.add(bannerEntity);
+        }
+
+        BannerLayout bannerLayout= ((BannerLayout) mViewGroup.findViewById(R.id.first_banner));
+        bannerLayout.setEntities(mList,this);
+        //这里设置点的颜色和位置需要设置了数据之后才能设置，因为点的数量需要数据的条数来确定
+        bannerLayout.setPointColor(Color.BLUE, Color.RED);
+        bannerLayout.setPointPotision(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+        //设置无限轮播的起始停顿时间和轮播的间隔时间
+        bannerLayout.schedule(2000, 3000);
+        //设置轮播的点击事件
+//        bannerLayout.setOnBannerClickListener(this);
+
+
+        RecyclerView recyclerView= ((RecyclerView) mViewGroup.findViewById(R.id.first_recyclerview));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //设置一个垂直方向的layout manager
+        int orientation = LinearLayoutManager.VERTICAL;
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext, orientation, false));
+
+        String[] titleArr=getResources().getStringArray(R.array.first_recycler_list);
+        List<FirstBean> firstBeans=new ArrayList<>();
+        for (String title :
+                titleArr) {
+            FirstBean firstBean=new FirstBean();
+            firstBean.setTitle(title);
+            firstBeans.add(firstBean);
+        }
+
+        FirstAdapter firstAdapter=new FirstAdapter(recyclerView,firstBeans);
+        firstAdapter.setOnItemClickListener(this);
+        recyclerView.setAdapter(firstAdapter);
+
+
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mContext=context;
+    public void onBannerShow(String s, ImageView imageView) {
+        Glide.with(this)
+                .load(s)
+                .fitCenter()
+//              .transform(new GlideCircleTransform((Context) obj))
+                .priority(Priority.NORMAL)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .placeholder(R.mipmap.pic_banner_load)
+                .error(R.mipmap.pic_banner_load)
+                .crossFade()
+                .into(imageView);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        mViewGroup= (ViewGroup) inflater.inflate(R.layout.fragment_first, container, false);
-        initView();
-        return mViewGroup;
-    }
-
-    private void initView(){
-        mViewGroup.findViewById(R.id.func_hello).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.hello_work).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.main_data).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.function_spanner).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.function_rx).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.function_contact).setOnClickListener(this);
-        mViewGroup.findViewById(R.id.function_permission).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.func_hello:
+    public void onItemClick(View view, FirstBean data, int position) {
+        VtToast.s(mContext,"view:"+view+"--data:"+data.getTitle()+"--position:"+position);
+        switch (position){
+            case 0:{
+                boolean isNight = ((boolean) SPUtil.get(mContext, SPUtil.FileName.SYSTEM, "isNight", false));
+                if (isNight){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
                 SPUtil.put(mContext, SPUtil.FileName.SYSTEM,"isNight",
-                        !((boolean)SPUtil.get(mContext, SPUtil.FileName.SYSTEM,"isNight",false)));
-//                ((MainActivity)mContext).setActTheme();
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        !isNight);
+
+                ((AppCompatActivity)mContext).recreate();
                 VtToast.s(mContext,"更换主题");
                 break;
-            case R.id.hello_work:
+            }
+            case 1:{
                 startActivity(new Intent(mContext, ShowActivity.class));
                 break;
-            case R.id.main_data:
+            }
+            case 2:{
                 startActivity(new Intent(mContext, DataActivity.class));
                 break;
-            case R.id.function_spanner:
-                startActivity(new Intent(mContext, SpannerActivity.class));
+            }
+            case 3:{
+                startActivity(new Intent(mContext, TabLayoutUIA.class));
                 break;
-            case R.id.function_rx:
-                startActivity(new Intent(mContext, RxJavaActivity.class));
+            }
+            case 4:{
+                startActivity(new Intent(mContext, CollapsingToolbarUIA.class));
                 break;
-            case R.id.function_contact:
+            }
+            case 5:{
                 startActivity(new Intent(mContext, ContactActivity.class));
                 break;
-            case R.id.function_permission:
-                startActivity(new Intent(mContext, PermissionsActivity.class));
-                break;
+            }
+
         }
+
     }
 }

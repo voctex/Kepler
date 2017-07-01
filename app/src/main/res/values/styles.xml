@@ -5,33 +5,47 @@
     </style>
 
     <!--白天模式-->
-    <style name="AppLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--主题色-->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏背景色-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <!--辅助色（或强调色）-->
+        <!--各控件元件（如：CheckBox、switch或者radio）被勾选或者选定的颜色-->
         <item name="colorAccent">@color/colorAccent</item>
+        <!--各控件元件预设颜色-->
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <!--app bar上的标题与更多菜单中的文字颜色-->
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
         <item name="android:textColorTertiary">@color/colorPrimaryTextBlack</item>
         <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
         <item name="android:textColorSecondary">@color/colorSubTextBlack</item>
         <!--Window的背景色-->
         <item name="android:windowBackground">@color/white</item>
-    </style>
-    <!--夜间模式-->
-    <style name="AppDarkTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/darkColorPrimary</item>
-        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
-        <item name="colorAccent">@color/darkColorAccent</item>
-        <item name="android:textColorTertiary">@color/darkColorPrimaryTextBlack</item>
-        <!--<item name="android:textColorPrimary">@color/darkColorPrimaryTextBlack</item>-->
-        <item name="android:textColorSecondary">@color/darkColorSubTextBlack</item>
-        <item name="android:windowBackground">@color/darkWindowBackground</item>
+        <!--窗体是否透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--窗体覆盖物-->
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="AppLightTheme.Fullscreen" parent="AppLightTheme">
+    <!--全屏展示的activity样式-->
+    <style name="AppBaseTheme.Fullscreen" parent="AppBaseTheme">
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!--项目唯一主界面样式，窗体不透明-->
+    <style name="AppBaseTheme.Main" parent="AppBaseTheme">
+        <item name="android:windowIsTranslucent">false</item>
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+    </style>
+
+    <!--toolbar样式-->
+    <style name="AppBaseTheme.Toolbar" parent="AppBaseTheme">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorTertiary">@color/white</item>
     </style>
 
     <style name="Transparent" parent="android:Theme.Light">

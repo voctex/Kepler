@@ -2,9 +2,9 @@
 <resources>
 
     <!--theme-->
-    <color name="colorPrimary">#9c27b0</color>
+    <color name="colorPrimary">#2b2b2b</color>
     <!--就是比colorPrimary稍微深一些，主要用在状态栏-->
-    <color name="colorPrimaryDark">#7b1fa2</color>
+    <color name="colorPrimaryDark">#030303</color>
     <!--辅助色（或强调色）-->
     <color name="colorAccent">#9c27b0</color>
     <color name="colorControlNormal">#999999</color>
@@ -14,7 +14,6 @@
     <color name="colorSubTextBlack">#cc999999</color>
     <!--Window的背景色-->
     <color name="windowBackground">#ffffff</color>
-
 
 
     <color name="textColor">#999</color>

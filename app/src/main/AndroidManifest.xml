@@ -35,7 +35,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppLightTheme">
+        android:theme="@style/AppBaseTheme">
 
         <meta-data
             android:name="appId"
@@ -59,12 +59,12 @@
             android:name=".MainActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/AppLightTheme" />
+            android:theme="@style/AppBaseTheme.Main" />
         <!-- <activity android:name=".base.BaseActivity" /> -->
         <activity
             android:name=".activity.StartActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppLightTheme.Fullscreen">
+            android:theme="@style/AppBaseTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -95,11 +95,13 @@
         <activity
             android:name=".contacts.ContactActivity"
             android:screenOrientation="portrait" />
-        <!--permission-->
-        <activity
-            android:name=".permission.PermissionsActivity"
-            android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.tablayout.view.TabLayoutUIA"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tablayout.view.CollapsingToolbarUIA"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

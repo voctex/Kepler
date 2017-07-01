@@ -18,9 +18,11 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.voctex.base.BaseActivity;
+import com.voctex.base.UniversalActivity;
 import com.voctex.fragment.FirstFragment;
 import com.voctex.fragment.FourthFragment;
 import com.voctex.fragment.SecondFragment;
+import com.voctex.fragment.ThreeFragment;
 import com.voctex.fragment.WebFragment;
 import com.voctex.tools.VtLog;
 import com.voctex.tools.VtToast;
@@ -34,16 +36,17 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener ,TabHost.OnTabChangeListener/*,PayStatusListener*/{
+public class MainActivity extends UniversalActivity implements View.OnClickListener ,TabHost.OnTabChangeListener/*,PayStatusListener*/{
 
     private Class<?>[] fragments = new Class[] { FirstFragment.class,
-            SecondFragment.class, WebFragment.class,
+            SecondFragment.class, ThreeFragment.class,
             FourthFragment.class };
     private List<String> tabList;
     private TypedArray tabImgs;
     private int beforeTag = 0;
     private FragmentTabHost tabHost;
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +79,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
     }
 
     private void initView(){
-
+        //toolbar实现部分
         Toolbar toolbar= ((Toolbar) findViewById(R.id.main_toolbar));
         toolbar.setTitle("Kepler");
+        //替换actionbar
         setSupportActionBar(toolbar);
 
 
@@ -106,7 +110,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
         tabHost.getTabContentView().addView(getView(1),0);
 
 
-        final NavigationView navigationView= ((NavigationView) findViewById(R.id.navigation_view));
+        navigationView = ((NavigationView) findViewById(R.id.navigation_view));
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -119,6 +123,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
                 return false;
             }
         });
+
+        LinearLayout headerLayout=(LinearLayout) navigationView.getHeaderView(0);
+        headerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+
+            }
+        });
+
 
         drawerLayout = ((DrawerLayout) findViewById(R.id.drawer_layout));
 
@@ -145,6 +159,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
                 VtLog.i("drawer--changed"+newState);
             }
         });
+
+
+
 
     }
 

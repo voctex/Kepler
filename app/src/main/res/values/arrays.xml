@@ -16,4 +16,14 @@
         <item>@drawable/selector_tab_item_icon3</item>
     </string-array>
 
+
+    <string-array name="first_recycler_list">
+        <item>切换主题</item>
+        <item>SlideTabView的展示</item>
+        <item>LoadingView的展示</item>
+        <item>进入Toolbar界面</item>
+        <item>进入CollapsingToolbar界面</item>
+        <item>进入联系人界面</item>
+    </string-array>
+
 </resources>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <declare-styleable name="QingtingBanner">
-        <attr name="qt_line_color" format="color" />
-    </declare-styleable>
-
-</resources>

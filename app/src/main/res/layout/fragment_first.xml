@@ -5,69 +5,31 @@
     android:fillViewport="true"
     tools:context="com.voctex.fragment.FirstFragment">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
         android:orientation="vertical">
 
 
+        <com.voctex.banner.BannerLayout
+            android:id="@+id/first_banner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+
+        </com.voctex.banner.BannerLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/first_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
         <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:id="@+id/func_hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/hello_blank_fragment_first" />
 
-
-        <TextView
-            android:id="@+id/hello_work"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Hello World!" />
-
-
-        <TextView
-            android:id="@+id/main_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="进入显示数据界面" />
-
-        <TextView
-            android:id="@+id/function_spanner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="进入显示功能界面" />
-
-        <TextView
-            android:id="@+id/function_rx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="进入RX功能界面" />
-
-        <TextView
-            android:id="@+id/function_contact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="进入联系人功能界面" />
-
-        <TextView
-            android:id="@+id/function_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="进入权限功能界面" />
 
     </LinearLayout>
 </ScrollView>

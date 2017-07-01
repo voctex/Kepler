@@ -2,18 +2,48 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/navigation_item_home"
-            android:icon="@mipmap/ic_launcher"
-            android:title="首页" />
+            android:id="@+id/items1"
+            android:title="分组一">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/navigation_item_home"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="首页" />
+                    <item
+                        android:id="@+id/navigation_item_blog"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="博客" />
+                    <item
+                        android:id="@+id/navigation_item_about"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="关于" />
+                </group>
+            </menu>
+        </item>
         <item
-            android:id="@+id/navigation_item_blog"
-            android:icon="@mipmap/ic_launcher"
-            android:title="博客" />
-        <item
-            android:id="@+id/navigation_item_about"
-            android:icon="@mipmap/ic_launcher"
-            android:title="关于" />
+            android:id="@+id/items2"
+            android:title="分组二">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/navigation_item_home2"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="首页" />
+                    <item
+                        android:id="@+id/navigation_item_blog2"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="博客" />
+                    <item
+                        android:id="@+id/navigation_item_about2"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="关于" />
+                </group>
+            </menu>
+        </item>
+
     </group>
 
 </menu>
