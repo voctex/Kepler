@@ -3,6 +3,7 @@ package com.voctex;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.widget.DrawerLayout;
@@ -111,6 +112,8 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
 
 
         navigationView = ((NavigationView) findViewById(R.id.navigation_view));
+        //隐藏NavigationView的滚动条
+        removeNavigationViewScrollbar(navigationView);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -235,13 +238,12 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
         return view;
     }
 
-//    @Override
-//    public void onPaySuccess(GamePayParams payParams) {
-//
-//    }
-//
-//    @Override
-//    public void onPayFailure(GamePayParams payParams, String reason) {
-//
-//    }
+    private void removeNavigationViewScrollbar(NavigationView navigationView){
+        if (navigationView != null){
+            NavigationMenuView navigationMenuView =  (NavigationMenuView) navigationView.getChildAt(0);
+            if (navigationMenuView != null){
+                navigationMenuView.setVerticalScrollBarEnabled(false);
+            }
+        }
+    }
 }
