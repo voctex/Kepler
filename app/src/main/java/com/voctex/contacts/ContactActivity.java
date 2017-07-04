@@ -4,9 +4,12 @@ import com.voctex.R;
 import com.voctex.base.BaseActivity;
 import com.voctex.contacts.js.JavaScriptObject;
 import com.voctex.tools.VtLog;
+import com.voctex.tools.VtToast;
 import com.voctex.ui.tablayout.adapter.TabLayoutAdapter;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -57,6 +60,22 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
         TabLayoutAdapter tabLayoutAdapter=new TabLayoutAdapter(recyclerView,mList);
 
         recyclerView.setAdapter(tabLayoutAdapter);
+
+
+        FloatingActionButton fab= ((FloatingActionButton) findViewById(R.id.contact_fab));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,"floatingActionBtn",Snackbar.LENGTH_SHORT)
+                        .setAction("action", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                VtToast.s(mContext,"仙剑奇侠传");
+                            }
+                        }).show();
+            }
+        });
+
 
 //        LinearLayout topLayout= (LinearLayout) findViewById(R.id.uia_contact_toplayout);
 //        topLayout.setOnClickListener(this);

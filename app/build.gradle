@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '25.0.3'
 
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
@@ -67,7 +67,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.voctex.banner:banner:1.0.5'
     testCompile 'junit:junit:4.12'
-    compile(name: 'ArcRipple-release', ext: 'aar')
+//    compile(name: 'ArcRipple-release', ext: 'aar')
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
 
     // To get SwipeBack feature, rely on both fragmentation & fragmentation-swipeback

@@ -6,6 +6,7 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/collapsing_appbar"
         android:layout_width="match_parent"
         android:layout_height="256dp">
 
@@ -45,9 +46,11 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/collapsing_nestedscrollview"
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -59,6 +62,23 @@
         </WebView>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/collapsing_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="10dp"
+        android:src="@mipmap/ic_launcher"
+        app:borderWidth="0dp"
+        app:layout_anchor="@+id/collapsing_nestedscrollview"
+        app:layout_behavior="com.voctex.ui.tablayout.other.ScrollAwareFABBehavior"
+        app:layout_anchorGravity="bottom|right|end" />
+
+
+
+
+
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -5,6 +5,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
@@ -12,6 +14,7 @@ import android.webkit.WebViewClient;
 
 import com.voctex.R;
 import com.voctex.base.BaseActivity;
+import com.voctex.tools.VtToast;
 
 /**
  * Created by mac_xihao on 17/6/28.
@@ -57,5 +60,19 @@ public class CollapsingToolbarUIA extends BaseActivity {
 
 
         //
+
+        FloatingActionButton fab= ((FloatingActionButton) findViewById(R.id.collapsing_fab));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,"floatingActionBtn",Snackbar.LENGTH_SHORT)
+                        .setAction("action", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                VtToast.s(mContext,"仙剑奇侠传");
+                            }
+                        }).show();
+            }
+        });
     }
 }
