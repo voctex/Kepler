@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!--SlideTabView color-->
-    <color name="st_line">#cccccc</color>
-    <color name="st_title_text_select">#0185cf</color>
-    <color name="st_title_text_normal">#333333</color>
-    <color name="st_toplayout_bottom_line">#cccccc</color>
-</resources>

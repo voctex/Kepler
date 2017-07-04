@@ -18,26 +18,26 @@ android {
         multiDexEnabled true
     }
     buildTypes {
-        debug{
+        debug {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            manifestPlaceholders=["test_key":"debug1111","test_key2":"debug2222"]
+            manifestPlaceholders = ["test_key": "debug1111", "test_key2": "debug2222"]
         }
         release {
             minifyEnabled true  //是否开启混淆
             shrinkResources true    //去除无用的resource文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            manifestPlaceholders=["test_key":"release11","test_key2":"release22"]
+            manifestPlaceholders = ["test_key": "release11", "test_key2": "release22"]
         }
     }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res/banner', 'src/main/res/tabhost',
-                           'src/main/res/pullload','src/main/res/rx','src/main/res/contacts',
-                            'src/main/res/slidetab']
+            res.srcDirs = ['src/main/res', 'src/main/res/others/tabhost',
+                           'src/main/res/others/rx', 'src/main/res/others/contacts',
+                           'src/main/res/others/slidetab']
         }
     }
 
@@ -76,7 +76,6 @@ dependencies {
     compile 'me.yokeyword:fragmentation-swipeback:1.0.3'
 
     compile 'pub.devrel:easypermissions:0.4.2'
-
 
 //    compile ('com.yidont.esdk:pay:0.0.5'){
 //        // 冲突时优先使用该版本
