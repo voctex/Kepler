@@ -45,12 +45,12 @@ import java.util.List;
 public class FirstFragment extends BaseFragment implements OnBannerImgShowListener,BaseRecyclerAdapter.OnItemClickListener<FirstBean>{
 
 
-    private String[] imgs = {"http://i.dimg.cc/c6/83/61/ae/6d/cf/05/14/53/d0/ca/d3/b6/cc/53/a8.jpg",
-            "http://cartoon.youth.cn/zxzx/201611/W020161114398226707935.jpg",
-            "http://img01.cztv.com/201611/23/4b010e8135acc3f3c4c4dd6d2854396c.jpg",
-            "http://fun.youth.cn/yl24xs/201609/W020160924508906880576.png",
-            "http://7xsbn8.com1.z0.glb.clouddn.com/1480305147.jpg",
-            "http://2t.5068.com/uploads/allimg/160406/65-1604061H216.jpg"};
+    private String[] imgs = {"http://www.005.tv/uploads/allimg/161208/1J0124292-3.jpg",
+            "http://wapfile.desktx.com/pc/161122/bigpic/5832b76c05a7e.jpg",
+            "http://www.005.tv/uploads/allimg/161208/1J0124292-3.jpg",
+            "http://2t.5068.com/uploads/allimg/161205/68-1612051H459-50.jpg",
+            "http://www.005.tv/uploads/allimg/161208/1J012I47-12.jpg",
+            "http://2t.5068.com/uploads/allimg/161205/68-1612051H501-50.jpg"};
 
     @Override
     protected int getLayout() {
@@ -72,7 +72,7 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
         bannerLayout.setPointColor(Color.BLUE, Color.RED);
         bannerLayout.setPointPotision(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
         //设置无限轮播的起始停顿时间和轮播的间隔时间
-        bannerLayout.schedule(2000, 3000);
+        bannerLayout.schedule(2000, 4500);
         //设置轮播的点击事件
 //        bannerLayout.setOnBannerClickListener(this);
 

@@ -1,5 +1,6 @@
 package com.voctex.view;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -26,6 +27,9 @@ import java.util.TimerTask;
  * 不爽就来大战300回合
  */
 public class BestArcView extends View {
+    private int waiTime;
+    private int intervalTime;
+
     public BestArcView(Context context) {
         super(context);
         initView();
@@ -129,6 +133,8 @@ public class BestArcView extends View {
      * Set the point launch time and the before launch time
      */
     public void setDuration(int waiTime, int intervalTime) {
+        this.waiTime = waiTime;
+        this.intervalTime = intervalTime;
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -138,6 +144,7 @@ public class BestArcView extends View {
         }, waiTime, intervalTime);
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

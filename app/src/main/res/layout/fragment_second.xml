@@ -25,12 +25,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"/>
 
-    <view
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="right"
-        class="com.arcripple.ArcRipple"
-        android:id="@+id/shaperipple" />
+    <!--<view-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:layout_gravity="right"-->
+        <!--class="com.arcripple.ArcRipple"-->
+        <!--android:id="@+id/shaperipple" />-->
 
 
 </FrameLayout>

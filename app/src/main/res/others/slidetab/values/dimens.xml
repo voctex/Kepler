@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 分割线高度 -->
+    <dimen name="st_divide_line">0.5dp</dimen>
+    <!-- 滑动头部文字大小 -->
+    <dimen name="st_title_size">16sp</dimen>
+    <!-- 滑动头部文字内边距 -->
+    <dimen name="st_title_padding">7dp</dimen>
+    <!-- 滑动头部游标高度 -->
+    <dimen name="st_title_cursor">2dp</dimen>
+</resources>
