@@ -93,7 +93,9 @@ public abstract class UniversalFragment extends SupportFragment implements EasyP
         // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
         // This will display a dialog directing them to enable the permission in app settings.
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            new AppSettingsDialog.Builder(this).build().show();
+            new AppSettingsDialog.Builder(this).setTitle("权限申请")
+                    .setRationale("这个程序因为没有请求的权限可能无法正确工作。打开应用程序设置界面修改应用程序的权限。")
+                    .build().show();
         }
     }
 }

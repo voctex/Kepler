@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.List;
 
@@ -60,12 +61,14 @@ public class UniversalSwipeBackActivity extends SwipeBackActivity implements Eas
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-
+        Log.d("KEPLER", "onPermissionsDenied:" + requestCode + ":" + perms.size());
 
         // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
         // This will display a dialog directing them to enable the permission in app settings.
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            new AppSettingsDialog.Builder(this).build().show();
+            new AppSettingsDialog.Builder(this).setTitle("权限申请")
+                    .setRationale("这个程序因为没有请求的权限可能无法正确工作。打开应用程序设置界面修改应用程序的权限。")
+                    .build().show();
         }
 
 

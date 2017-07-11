@@ -1,12 +1,6 @@
 package com.voctex.contacts;
 
-import com.voctex.R;
-import com.voctex.base.BaseActivity;
-import com.voctex.contacts.js.JavaScriptObject;
-import com.voctex.tools.VtLog;
-import com.voctex.tools.VtToast;
-import com.voctex.ui.tablayout.adapter.TabLayoutAdapter;
-
+import android.Manifest;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,27 +8,31 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.LinearLayout;
+
+import com.voctex.R;
+import com.voctex.base.BaseActivity;
+import com.voctex.tools.RCPerms;
+import com.voctex.tools.VtToast;
+import com.voctex.ui.tablayout.adapter.TabLayoutAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
+
 /**
  * Created by Voctex on 2016/8/29.
+ * 联系人授权并显示，动态权限申请
  */
 public class ContactActivity extends BaseActivity implements View.OnClickListener/*,JavaScriptObject.OnJsListener*/ {
-//    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uia_contact_main);
+
+        applyContactPms();
 
         initView();
 
@@ -76,37 +74,16 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
             }
         });
 
+    }
 
-//        LinearLayout topLayout= (LinearLayout) findViewById(R.id.uia_contact_toplayout);
-//        topLayout.setOnClickListener(this);
-//
-//        webView = (WebView) findViewById(R.id.uia_contact_webview);
-//        WebSettings webSettings = webView.getSettings();
-//        webSettings.setJavaScriptEnabled(true);
-//
-//        JavaScriptObject javaScriptObject=new JavaScriptObject(this);
-//        javaScriptObject.setOnJsListener(this);
-//
-//        webSettings.setAppCacheEnabled(false);
-//        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-//        webView.addJavascriptInterface(javaScriptObject, "jsObj");
-//
-//
-//        webView.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                webView.loadUrl(url);
-//                return super.shouldOverrideUrlLoading(view, url);
-//            }
-//
-//
-//
-//        });
-//        webView.setWebChromeClient(new WebChromeClient() {
-//
-//        });
-//
-//        webView.loadUrl("http://www.baidu.com");
+    @AfterPermissionGranted(RCPerms.RC_READ_CONTACTS)
+    private void applyContactPms(){
+        String[] perms={Manifest.permission.READ_CONTACTS};
+        if (EasyPermissions.hasPermissions(this,perms)){
+            VtToast.s(this,"已经获得相应权限");
+        }else{
+            EasyPermissions.requestPermissions(this,"略略略",RCPerms.RC_READ_CONTACTS,perms);
+        }
     }
 
     private void initData(){
@@ -116,9 +93,6 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-//            case R.id.uia_contact_toplayout:{
-//                break;
-//            }
         }
     }
 
