@@ -17,18 +17,18 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.voctex.R;
+import com.voctex.activity.AnimationActivity;
 import com.voctex.activity.DataActivity;
-import com.voctex.activity.ShowActivity;
-import com.voctex.activity.SpannerActivity;
+import com.voctex.activity.SlideTabUIA;
 import com.voctex.banner.BannerLayout;
 import com.voctex.banner.bean.BannerEntity;
+import com.voctex.banner.interfac.OnBannerClickListener;
 import com.voctex.banner.interfac.OnBannerImgShowListener;
 import com.voctex.base.BaseFragment;
 import com.voctex.base.BaseRecyclerAdapter;
 import com.voctex.contacts.ContactActivity;
 import com.voctex.fragment.adapter.FirstAdapter;
 import com.voctex.fragment.bean.FirstBean;
-import com.voctex.rx.uia.RxJavaActivity;
 import com.voctex.tools.SPUtil;
 import com.voctex.tools.VtToast;
 import com.voctex.ui.tablayout.view.CollapsingToolbarUIA;
@@ -42,7 +42,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * Created by voctex on 2016/08/12.
  */
-public class FirstFragment extends BaseFragment implements OnBannerImgShowListener,BaseRecyclerAdapter.OnItemClickListener<FirstBean>{
+public class FirstFragment extends BaseFragment implements OnBannerImgShowListener, OnBannerClickListener, BaseRecyclerAdapter.OnItemClickListener<FirstBean> {
 
 
     private String[] imgs = {"http://www.005.tv/uploads/allimg/161208/1J0124292-3.jpg",
@@ -57,7 +57,7 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
         return R.layout.fragment_first;
     }
 
-    protected void initView(){
+    protected void initView() {
 
         List<BannerEntity> mList = new ArrayList<>();
         for (int i = 0; i < imgs.length; i++) {
@@ -66,18 +66,18 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
             mList.add(bannerEntity);
         }
 
-        BannerLayout bannerLayout= ((BannerLayout) mViewGroup.findViewById(R.id.first_banner));
-        bannerLayout.setEntities(mList,this);
+        BannerLayout bannerLayout = ((BannerLayout) mViewGroup.findViewById(R.id.first_banner));
+        bannerLayout.setEntities(mList, this);
         //这里设置点的颜色和位置需要设置了数据之后才能设置，因为点的数量需要数据的条数来确定
         bannerLayout.setPointColor(Color.BLUE, Color.RED);
         bannerLayout.setPointPotision(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
         //设置无限轮播的起始停顿时间和轮播的间隔时间
         bannerLayout.schedule(2000, 4500);
         //设置轮播的点击事件
-//        bannerLayout.setOnBannerClickListener(this);
+        bannerLayout.setOnBannerClickListener(this);
 
 
-        RecyclerView recyclerView= ((RecyclerView) mViewGroup.findViewById(R.id.first_recyclerview));
+        RecyclerView recyclerView = ((RecyclerView) mViewGroup.findViewById(R.id.first_recyclerview));
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -85,16 +85,16 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
         int orientation = LinearLayoutManager.VERTICAL;
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext, orientation, false));
 
-        String[] titleArr=getResources().getStringArray(R.array.first_recycler_list);
-        List<FirstBean> firstBeans=new ArrayList<>();
+        String[] titleArr = getResources().getStringArray(R.array.first_recycler_list);
+        List<FirstBean> firstBeans = new ArrayList<>();
         for (String title :
                 titleArr) {
-            FirstBean firstBean=new FirstBean();
+            FirstBean firstBean = new FirstBean();
             firstBean.setTitle(title);
             firstBeans.add(firstBean);
         }
 
-        FirstAdapter firstAdapter=new FirstAdapter(recyclerView,firstBeans);
+        FirstAdapter firstAdapter = new FirstAdapter(recyclerView, firstBeans);
         firstAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(firstAdapter);
 
@@ -117,44 +117,53 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
 
     @Override
     public void onItemClick(View view, FirstBean data, int position) {
-        VtToast.s(mContext,"view:"+view+"--data:"+data.getTitle()+"--position:"+position);
-        switch (position){
-            case 0:{
+        VtToast.s(mContext, "view:" + view + "--data:" + data.getTitle() + "--position:" + position);
+        switch (position) {
+            case 0: {
                 boolean isNight = ((boolean) SPUtil.get(mContext, SPUtil.FileName.SYSTEM, "isNight", false));
-                if (isNight){
+                if (isNight) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }else{
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }
-                SPUtil.put(mContext, SPUtil.FileName.SYSTEM,"isNight",
+                SPUtil.put(mContext, SPUtil.FileName.SYSTEM, "isNight",
                         !isNight);
 
-                ((AppCompatActivity)mContext).recreate();
-                VtToast.s(mContext,"更换主题");
+                ((AppCompatActivity) mContext).recreate();
+                VtToast.s(mContext, "更换主题");
                 break;
             }
-            case 1:{
-                startActivity(new Intent(mContext, ShowActivity.class));
+            case 1: {
+                startActivity(new Intent(mContext, SlideTabUIA.class));
                 break;
             }
-            case 2:{
+            case 2: {
                 startActivity(new Intent(mContext, DataActivity.class));
                 break;
             }
-            case 3:{
+            case 3: {
                 startActivity(new Intent(mContext, TabLayoutUIA.class));
                 break;
             }
-            case 4:{
+            case 4: {
                 startActivity(new Intent(mContext, CollapsingToolbarUIA.class));
                 break;
             }
-            case 5:{
+            case 5: {
                 startActivity(new Intent(mContext, ContactActivity.class));
+                break;
+            }
+            case 6: {
+                startActivity(new Intent(mContext, AnimationActivity.class));
                 break;
             }
 
         }
 
+    }
+
+    @Override
+    public void onBannerClick(int i, BannerEntity bannerEntity) {
+        VtToast.s(mContext, "position:" + i);
     }
 }

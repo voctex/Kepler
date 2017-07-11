@@ -71,7 +71,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ShowActivity"
+            android:name=".activity.SlideTabUIA"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.NFCActivity"

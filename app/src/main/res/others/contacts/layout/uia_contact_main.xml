@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/include_toolbar"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/contact_recyclerview"
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
         app:borderWidth="0dp"
         app:elevation="5dp"
         app:fabSize="auto"
-        app:pressedTranslationZ="50dp"
+        app:pressedTranslationZ="10dp"
         app:rippleColor="@color/gray"
         app:useCompatPadding="true"
         app:layout_anchor="@+id/contact_recyclerview"

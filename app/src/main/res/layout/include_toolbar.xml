@@ -2,18 +2,21 @@
 <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/include_appbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
+    <com.voctex.view.TitleBarLayout
+        android:id="@+id/include_toolbar"
         android:layout_width="match_parent"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/selector_ic_back"
+        app:title="@string/app_name"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/AppBaseTheme.Toolbar">
 
-    </android.support.v7.widget.Toolbar>
+    </com.voctex.view.TitleBarLayout>
 
 </android.support.design.widget.AppBarLayout>

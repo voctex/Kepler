@@ -10,6 +10,7 @@
 
 ![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl1.gif?raw=true)
 ![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl2.gif?raw=true)
+![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl3.gif?raw=true)
 
 
 在第一个片段中

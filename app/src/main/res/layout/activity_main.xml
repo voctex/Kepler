@@ -13,7 +13,7 @@
 
         <include
             android:id="@+id/appbar"
-            layout="@layout/main_toolbar" />
+            layout="@layout/include_toolbar" />
 
 
         <LinearLayout
@@ -49,6 +49,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:scrollbars="none"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/main_drawer" />
 

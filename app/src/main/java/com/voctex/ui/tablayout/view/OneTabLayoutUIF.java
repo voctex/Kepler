@@ -19,8 +19,9 @@ import java.util.List;
 
 /**
  * Created by mac_xihao on 17/6/28.
+ * 线性列表
  */
-public class OneTabLayoutUIF extends BaseFragment {
+public class OneTabLayoutUIF extends PaletteUIF {
     @Override
     protected int getLayout() {
         return R.layout.uif_tablayout_one_main;
@@ -28,7 +29,7 @@ public class OneTabLayoutUIF extends BaseFragment {
 
     @Override
     protected void initView() {
-        RecyclerView recyclerView= ((RecyclerView) mViewGroup.findViewById(R.id.tablayout1_recyclerview));
+        RecyclerView recyclerView = ((RecyclerView) mViewGroup.findViewById(R.id.tablayout1_recyclerview));
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -37,17 +38,14 @@ public class OneTabLayoutUIF extends BaseFragment {
         int orientation = LinearLayoutManager.VERTICAL;
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext, orientation, false));
 
-        List<String> mList=new ArrayList<>();
+        List<String> mList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            mList.add("位置为："+i);
+            mList.add("位置为：" + i);
         }
 
-        TabLayoutAdapter tabLayoutAdapter=new TabLayoutAdapter(recyclerView,mList);
+        TabLayoutAdapter tabLayoutAdapter = new TabLayoutAdapter(recyclerView, mList);
 
         recyclerView.setAdapter(tabLayoutAdapter);
-
-
-
 
     }
 

@@ -24,6 +24,7 @@
         <item>进入Toolbar界面</item>
         <item>进入CollapsingToolbar界面</item>
         <item>进入联系人界面</item>
+        <item>进入动画界面</item>
     </string-array>
 
 </resources>

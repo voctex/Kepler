@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_animation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.voctex.activity.AnimationActivity"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context="com.voctex.activity.AnimationActivity">
+
+    <include layout="@layout/include_toolbar" />
 
 
-    <view
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        class="com.voctex.view.RotateView"
-        android:id="@+id/anim_rotate" />
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
-        <ImageView
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <view
+            android:id="@+id/anim_rotate"
+            class="com.voctex.view.RotateView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp" />
+
+
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_arc_gray"
-            android:scaleType="fitXY"
-            android:id="@+id/anim_circlr"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_arc_long"
-            android:scaleType="fitXY"
-            android:id="@+id/anim_arc"/>
-    </FrameLayout>
-</LinearLayout>
+            android:layout_marginTop="50dp"
+            >
+
+            <ImageView
+                android:id="@+id/anim_circlr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_arc_gray" />
+
+            <ImageView
+                android:id="@+id/anim_arc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_arc_long" />
+
+
+        </FrameLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</android.support.design.widget.CoordinatorLayout>

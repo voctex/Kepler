@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.voctex.ui.tablayout.view.PaletteUIF;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  */
 public class MyViewPagerAdapter extends FragmentPagerAdapter {
 
-    private final List<Fragment> mFragments = new ArrayList<>();//添加的Fragment的集合
+    private final List<PaletteUIF> mFragments = new ArrayList<>();//添加的Fragment的集合
     private final List<String> mFragmentsTitles = new ArrayList<>();//每个Fragment对应的title的集合
 
     public MyViewPagerAdapter(FragmentManager fm) {
@@ -23,13 +25,13 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
      * @param fragment      添加Fragment
      * @param fragmentTitle Fragment的标题，即TabLayout中对应Tab的标题
      */
-    public void addFragment(Fragment fragment, String fragmentTitle) {
+    public void addFragment(PaletteUIF fragment, String fragmentTitle) {
         mFragments.add(fragment);
         mFragmentsTitles.add(fragmentTitle);
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public PaletteUIF getItem(int position) {
         //得到对应position的Fragment
         return mFragments.get(position);
     }

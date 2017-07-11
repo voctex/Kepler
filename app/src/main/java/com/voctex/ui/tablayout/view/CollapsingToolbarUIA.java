@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.OnApplyWindowInsetsListener;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.WindowInsetsCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,12 +19,16 @@ import android.webkit.WebViewClient;
 import com.voctex.R;
 import com.voctex.base.BaseActivity;
 import com.voctex.tools.VtToast;
+import com.voctex.view.TitleBarLayout;
 
 /**
  * Created by mac_xihao on 17/6/28.
  * 可伸缩的toolbar界面
  */
 public class CollapsingToolbarUIA extends BaseActivity {
+
+    private WebView mWebView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +37,7 @@ public class CollapsingToolbarUIA extends BaseActivity {
     }
 
     private void initView(){
-        Toolbar toolbar= ((Toolbar) findViewById(R.id.collapsing_toolbar));
+        TitleBarLayout toolbar= ((TitleBarLayout) findViewById(R.id.collapsing_toolbar));
         toolbar.setNavigationIcon(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,7 +59,19 @@ public class CollapsingToolbarUIA extends BaseActivity {
 //        upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
 //        getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-        WebView mWebView = (WebView) findViewById(R.id.collapsing_webview);
+//        mCollapsingToolbarLayout.setClipToPadding(false);
+
+//        ViewCompat.setOnApplyWindowInsetsListener(mCollapsingToolbarLayout, new OnApplyWindowInsetsListener() {
+//            @Override
+//            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+//                //insets.replaceSystemWindowInsets(0, 0, 0, 0); 该行代码无效
+//                //  return insets.consumeSystemWindowInsets();
+//                return insets;
+//            }
+//        });
+
+
+        mWebView = (WebView) findViewById(R.id.collapsing_webview);
         //设置支持js
         mWebView.getSettings().setJavaScriptEnabled(true);
         //!!设置跳转的页面始终在当前WebView打开
@@ -74,5 +94,16 @@ public class CollapsingToolbarUIA extends BaseActivity {
                         }).show();
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+            mWebView.goBack(); // goBack()表示返回WebView的上一页面
+            return true;
+        } else {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

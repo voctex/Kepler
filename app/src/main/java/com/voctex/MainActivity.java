@@ -18,18 +18,15 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.voctex.base.BaseActivity;
 import com.voctex.base.UniversalActivity;
 import com.voctex.fragment.FirstFragment;
 import com.voctex.fragment.FourthFragment;
 import com.voctex.fragment.SecondFragment;
 import com.voctex.fragment.ThreeFragment;
-import com.voctex.fragment.WebFragment;
+import com.voctex.tools.StatusBarUtil;
 import com.voctex.tools.VtLog;
 import com.voctex.tools.VtToast;
-//import com.yidont.esdk.pay.bean.GamePayParams;
-//import com.yidont.esdk.pay.interfac.PayStatusListener;
-//import com.yidont.esdk.pay.view.PayView;
+import com.voctex.view.TitleBarLayout;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,11 +34,11 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends UniversalActivity implements View.OnClickListener ,TabHost.OnTabChangeListener/*,PayStatusListener*/{
+public class MainActivity extends UniversalActivity implements View.OnClickListener, TabHost.OnTabChangeListener/*,PayStatusListener*/ {
 
-    private Class<?>[] fragments = new Class[] { FirstFragment.class,
+    private Class<?>[] fragments = new Class[]{FirstFragment.class,
             SecondFragment.class, ThreeFragment.class,
-            FourthFragment.class };
+            FourthFragment.class};
     private List<String> tabList;
     private TypedArray tabImgs;
     private int beforeTag = 0;
@@ -53,35 +50,14 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        FragmentTabHost
-//        HorizontalPointView sixPointView=(HorizontalPointView) findViewById(R.id.sixpoint);
-//        sixPointView.setPointNum(8);
-//        sixPointView.setDuration(1000,500);
-//        sixPointView.setOnClickListener(this);
-
-//
-
-
-//                GamePayParams payParams=new GamePayParams();
-//        //订单名称，如：屠龙刀
-//        payParams.setGameOrderName("1111");
-//        //订单总价，String类型
-//        payParams.setGameOrderTotal("0.01");
-//        //商品id，如：屠龙刀id为009
-//        payParams.setGameProductId("abcdaeraer");
-//        //订单id（时间戳形式），如果没有自己的订单生成规则，可以传入null，
-//        payParams.setGameOrderNo(null);
-//        PayView.showPayUI(this, payParams, this);
 
         initView();
 
-
-
     }
 
-    private void initView(){
+    private void initView() {
         //toolbar实现部分
-        Toolbar toolbar= ((Toolbar) findViewById(R.id.main_toolbar));
+        TitleBarLayout toolbar = ((TitleBarLayout) findViewById(R.id.include_toolbar));
         toolbar.setTitle("Kepler");
         //替换actionbar
         setSupportActionBar(toolbar);
@@ -99,7 +75,7 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
                     getView(i));
             tabHost.addTab(spec, fragments[i], null);
 
-            VtLog.i( "spec.getTag()=" + spec.getTag());
+            VtLog.i("spec.getTag()=" + spec.getTag());
         }
 
         // 设置tabs之间的分隔线不显示
@@ -108,7 +84,7 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
         tabHost.setCurrentTab(0);
         tabHost.setOnTabChangedListener(this);
 
-        tabHost.getTabContentView().addView(getView(1),0);
+        tabHost.getTabContentView().addView(getView(1), 0);
 
 
         navigationView = ((NavigationView) findViewById(R.id.navigation_view));
@@ -117,17 +93,17 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                VtToast.s(mContext,"--"+item.getItemId());
-                VtLog.i("itemId="+item.getItemId()+"--groupId="+item.getGroupId());
-                VtLog.i("itemId="+R.id.navigation_item_home+"--groupId="+item.getGroupId());
-                VtLog.i("itemId="+R.id.navigation_item_blog+"--groupId="+item.getGroupId());
-                VtLog.i("itemId="+R.id.navigation_item_about+"--groupId="+item.getGroupId());
+                VtToast.s(mContext, "--" + item.getItemId());
+                VtLog.i("itemId=" + item.getItemId() + "--groupId=" + item.getGroupId());
+                VtLog.i("itemId=" + R.id.navigation_item_home + "--groupId=" + item.getGroupId());
+                VtLog.i("itemId=" + R.id.navigation_item_blog + "--groupId=" + item.getGroupId());
+                VtLog.i("itemId=" + R.id.navigation_item_about + "--groupId=" + item.getGroupId());
                 drawerLayout.closeDrawer(navigationView);
                 return false;
             }
         });
 
-        LinearLayout headerLayout=(LinearLayout) navigationView.getHeaderView(0);
+        LinearLayout headerLayout = (LinearLayout) navigationView.getHeaderView(0);
         headerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,31 +115,31 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
 
         drawerLayout = ((DrawerLayout) findViewById(R.id.drawer_layout));
 
-        ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         actionBarDrawerToggle.syncState();
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-                VtLog.i("drawer--slide"+slideOffset);
+                VtLog.i("drawer--slide" + slideOffset);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                VtLog.i("drawer--open"+"");
+                VtLog.i("drawer--open" + "");
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                VtLog.i("drawer--close"+"");
+                VtLog.i("drawer--close" + "");
             }
 
             @Override
             public void onDrawerStateChanged(int newState) {
-                VtLog.i("drawer--changed"+newState);
+                VtLog.i("drawer--changed" + newState);
             }
         });
 
-
+        drawerLayout.setClipToPadding(false);
 
 
     }
@@ -171,17 +147,6 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//            case R.id.hello_work:
-//                startActivity(new Intent(this, ShowActivity.class));
-//                break;
-//            case R.id.main_data:
-//                startActivity(new Intent(this, DataActivity.class));
-////                startActivity(new Intent(this, SpannerActivity.class));
-//                break;
-//            case R.id.function_spanner:
-////                startActivity(new Intent(this, DataActivity.class));
-//                startActivity(new Intent(this, SpannerActivity.class));
-//                break;
         }
     }
 
@@ -238,10 +203,10 @@ public class MainActivity extends UniversalActivity implements View.OnClickListe
         return view;
     }
 
-    private void removeNavigationViewScrollbar(NavigationView navigationView){
-        if (navigationView != null){
-            NavigationMenuView navigationMenuView =  (NavigationMenuView) navigationView.getChildAt(0);
-            if (navigationMenuView != null){
+    private void removeNavigationViewScrollbar(NavigationView navigationView) {
+        if (navigationView != null) {
+            NavigationMenuView navigationMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+            if (navigationMenuView != null) {
                 navigationMenuView.setVerticalScrollBarEnabled(false);
             }
         }

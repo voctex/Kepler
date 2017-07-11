@@ -5,7 +5,6 @@ import android.util.Log;
 /**
  * Created by Voctex on 2016/8/11.
  */
-
 public class VtLog {
 
     public static final String TAG = "tag_voctex";

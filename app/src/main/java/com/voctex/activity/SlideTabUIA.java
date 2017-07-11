@@ -12,12 +12,12 @@ import com.voctex.view.slidetab.SlideTabView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowActivity extends BaseActivity {
+public class SlideTabUIA extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show);
+        setContentView(R.layout.uia_slidetab_main);
 
         initView();
     }
@@ -39,6 +39,7 @@ public class ShowActivity extends BaseActivity {
         String[] titleTexts = new String[]{"距离", "资费", "当前", "第四"};
         for (int i = 0; i < titleTexts.length; i++) {
             Bundle mBundle = new Bundle();
+            mBundle.putInt("key",i);
             fragments[i].setArguments(mBundle);// 传不同值代表不同类型显示不同片段
             SlideTabBean fragTextBean = new SlideTabBean();
             fragTextBean.setText(titleTexts[i]);
