@@ -2,7 +2,7 @@
     <string name="app_name">Kepler</string>
 
 
-    <string name="haha">哈哈哈</string>
+    <string name="haha">haha</string>
 
     <string name="img_contentdescription">ImageView</string>
 
@@ -14,10 +14,14 @@
 
 
     <!--权限-->
-    <string name="permission_set">设置</string>
-    <string name="permission_cancel">取消</string>
+    <string name="permission_set">Setting</string>
+    <string name="permission_cancel">Cancel</string>
 
     <!--navigation-->
-    <string name="drawer_open">打开</string>
-    <string name="drawer_close">关闭</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="main_tab0">Recommend</string>
+    <string name="main_tab1">Classify</string>
+    <string name="main_tab2">Search</string>
+    <string name="main_tab3">Profile</string>
 </resources>

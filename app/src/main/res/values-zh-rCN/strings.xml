@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">克卜勒</string>
+    <string name="haha">哈哈</string>
+    <string name="img_contentdescription">这是一个图片控件</string>
+    <string name="hello_blank_fragment_first">这是第一个片段</string>
+    <string name="hello_blank_fragment_second">这是第二个片段</string>
+    <string name="hello_blank_fragment_third">这是第三个片段</string>
+    <string name="hello_blank_fragment_fourth">这是第四个片段</string>
+    <string name="permission_set">设置</string>
+    <string name="permission_cancel">取消</string>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+    <string name="main_tab0">推荐</string>
+    <string name="main_tab1">分类</string>
+    <string name="main_tab2">搜索</string>
+    <string name="main_tab3">个人</string>
+</resources>

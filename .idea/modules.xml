@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VoctexApp.iml" filepath="$PROJECT_DIR$/VoctexApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kepler.iml" filepath="$PROJECT_DIR$/Kepler.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
