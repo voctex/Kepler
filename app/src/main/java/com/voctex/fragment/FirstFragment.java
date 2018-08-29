@@ -21,11 +21,12 @@ import com.voctex.activity.AnimationActivity;
 import com.voctex.activity.DataActivity;
 import com.voctex.activity.SlideTabUIA;
 import com.voctex.banner.BannerLayout;
-import com.voctex.banner.bean.BannerEntity;
+import com.voctex.banner.interfac.IBannerEntity;
 import com.voctex.banner.interfac.OnBannerClickListener;
 import com.voctex.banner.interfac.OnBannerImgShowListener;
 import com.voctex.base.BaseFragment;
 import com.voctex.base.BaseRecyclerAdapter;
+import com.voctex.bean.BannerEntity;
 import com.voctex.contacts.ContactActivity;
 import com.voctex.fragment.adapter.FirstAdapter;
 import com.voctex.fragment.bean.FirstBean;
@@ -59,7 +60,7 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
 
     protected void initView() {
 
-        List<BannerEntity> mList = new ArrayList<>();
+        List<IBannerEntity> mList = new ArrayList<>();
         for (int i = 0; i < imgs.length; i++) {
             BannerEntity bannerEntity = new BannerEntity();
             bannerEntity.setAdImg(imgs[i]);
@@ -134,7 +135,10 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
                 break;
             }
             case 1: {
-                startActivity(new Intent(mContext, SlideTabUIA.class));
+//                Intent pIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//调用摄像头action
+//                startActivityForResult(pIntent, 1);//requestcode
+//                mContext.startActivities(new Intent[]{pIntent,new Intent(mContext,SlideTabUIA.class)});
+                startActivity(new Intent(mContext,SlideTabUIA.class));
                 break;
             }
             case 2: {
@@ -163,7 +167,7 @@ public class FirstFragment extends BaseFragment implements OnBannerImgShowListen
     }
 
     @Override
-    public void onBannerClick(int i, BannerEntity bannerEntity) {
-        VtToast.s(mContext, "position:" + i);
+    public void onBannerClick(int position, IBannerEntity bean) {
+        VtToast.s(mContext, "position:" + position);
     }
 }
