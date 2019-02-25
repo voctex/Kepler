@@ -8,9 +8,9 @@
 在该项目中，我自定义了不少view，可以给大家作为参考，有一些前期做的可能写得不是很规范。
 引入Fragmention框架，实现侧滑结束Activity或者Fragment界面的效果。
 
-![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl1.gif?raw=true)
-![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl2.gif?raw=true)
-![Image text](https://github.com/voctex/pictures/blob/master/kepler/gif/kpl3.gif?raw=true)
+![Image text](./Pics/gif/kpl1.gif?raw=true)
+![Image text](./Pics/gif/kpl2.gif?raw=true)
+![Image text](./Pics/gif/kpl3.gif?raw=true)
 
 
 在第一个片段中
